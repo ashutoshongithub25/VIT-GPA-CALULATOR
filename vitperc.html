@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+  <style>
+  
+body {
+  background:#33d9b2;
+  font-size: 12px;
+}
+
+body, button, input {
+  font-family: 'Righteous', cursive;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.background {
+  display: flex;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 0 1 700px;
+  margin: auto;
+  padding: 10px;
+}
+
+.screen {
+  position: relative;
+  background: #3e3e3e;
+  border-radius: 15px;
+}
+
+.screen:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  bottom: 0;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+  z-index: -1;
+}
+
+.screen-body {
+  display: flex;
+}
+
+.screen-body-item {
+  flex: 1;
+  padding: 50px;
+}
+
+.screen-body-item.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.app-title {
+  display: flex;
+  /*flex-direction: column;*/
+  justify-content: center;
+  align-items: center;
+  color: #33d9b2;f;
+  font-size: 26px;
+  text-transform: uppercase;
+  border-left: 4px solid #218c74;
+  padding: 10px;
+}
+
+.app-form-group {
+  margin-bottom: 15px;
+}
+
+.app-form-group.buttons {
+  margin-bottom: 0;
+  text-align: right;
+}
+
+.app-form-control {
+  width: 100%;
+  padding: 10px 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #666;
+  color: #ddd;
+  font-size: 14px;
+  text-transform: uppercase;
+  outline: none;
+  transition: border-color .2s;
+}
+
+.app-form-control::placeholder {
+  color: #FFF;
+}
+
+.app-form-control:focus {
+  border-bottom-color: #ddd;
+}
+
+.app-form-button {
+  background: none;
+  border: none;
+  color: #33d9b2;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  text-transform: uppercase;
+}
+
+.app-form-button:hover {
+  color: #218c74;
+}
+
+.showdata{
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  padding-top: -10px;
+  padding-bottom: 10px;
+}
+
+  </style>
+</head>
+<body>
+
+
+
+
+
+
+<!-- Student Grade Calculator
+
+Each student has to enter respective subject marks.
+1. Find Total?
+2. Find Percentage?
+3. Find Grade?
+4. Check Pass or Fail.
+5. Combined all and show Output.
+
+DONATION FOR SUPPORT:    PhonePay = vinodbahadur@ybl      GooglePay: vbthapa55@oksbi
+ -->
+
+
+
+
+
+
+
+
+
+
+<div class="background">
+  <div class="container">
+    <div class="screen">
+      <div class="screen-body">
+        <div class="screen-body-item left">
+          <div class="app-title">
+            <div class="animated infinite pulse">
+              Student <br> Grade <br> Calcy
+            </div>
+          </div>
+        </div>
+        <div class="screen-body-item">
+          <div class="app-form">
+            <div class="app-form-group">
+                <input type="text" class="app-form-control" placeholder="SUBJECT-1" id="s1">
+              </div>
+              <div class="app-form-group">
+                <input  type="text"  class="app-form-control"   placeholder="SUBJECT-2" id="s2">
+              </div>
+               <div class="app-form-group">
+                <input  type="text"  class="app-form-control"   placeholder="SUBJECT-3" id="s3">
+              </div>
+              <div class="app-form-group">
+                <input  type="text"  class="app-form-control"   placeholder="SUBJECT-4" id="s4" >
+              </div>
+  
+              <div class="app-form-group">
+                  <input  type="text"  class="app-form-control"   placeholder="SUBJECT-5" id="s5" >
+                </div>
+  
+                <div class="app-form-group">
+                  <input  type="text"  class="app-form-control"   placeholder="SUBJECT-6" id="s6" >
+                </div>
+  
+                <div class="app-form-group">
+                  <input  type="text"  class="app-form-control"   placeholder="SUBJECT-7" id="s7" >
+                </div>
+                <div class="app-form-group">
+                  <input  type="text"  class="app-form-control"   placeholder="SUBJECT-8" id="s8" >
+                </div>
+                <div class="app-form-group">
+                  <input  type="text"  class="app-form-control"   placeholder="SUBJECT-9" id="s9" >
+                </div>
+                <div class="app-form-group">
+                  <input  type="text"  class="app-form-control"   placeholder="SUBJECT-10" id="s10" >
+                </div>
+            <div > 
+              <input type="button" name="" value="showPercentage" class="app-form-button" onclick="calcy()">
+            </div>            
+          </div>
+      </div>
+
+      <div class="screen-body-item">
+        <div class="app-form">
+          <div class="app-form-group">
+            <input type="text" class="app-form-control" placeholder="CREDIT" id="cr1">
+          </div>
+          <div class="app-form-group">
+            <input  type="text"  class="app-form-control"   placeholder="CREDIT" id="cr2">
+          </div>
+           <div class="app-form-group">
+            <input  type="text"  class="app-form-control"   placeholder="CREDIT" id="cr3">
+          </div>
+          <div class="app-form-group">
+            <input  type="text"  class="app-form-control"   placeholder="CREDIT" id="cr4" >
+          </div>
+
+          <div class="app-form-group">
+              <input  type="text"  class="app-form-control"   placeholder="CREDIT" id="cr5" >
+            </div>
+
+            <div class="app-form-group">
+              <input  type="text"  class="app-form-control"   placeholder="CREDIT" id="cr6" >
+            </div>
+
+            <div class="app-form-group">
+              <input  type="text"  class="app-form-control"   placeholder="CREDIT" id="cr7" >
+            </div>
+            <div class="app-form-group">
+              <input  type="text"  class="app-form-control"   placeholder="CREDIT" id="cr8" >
+            </div>
+            <div class="app-form-group">
+              <input  type="text"  class="app-form-control"   placeholder="CREDIT" id="cr9" >
+            </div>
+            <div class="app-form-group">
+              <input  type="text"  class="app-form-control"   placeholder="CREDIT" id="cr10" >
+            </div>
+               
+  </div>
+</div>
+
+    </div>
+      <div class="app-form-group showdata">
+              <p id="showData" >  </p>
+     </div>
+  </div>
+</div>
+
+<script>
+  
+  const calcy = () =>{
+    let sub1 = document.getElementById('s1').value;
+  let sub2 = document.getElementById('s2').value;
+  let sub3 = document.getElementById('s3').value;
+  let sub4 = document.getElementById('s4').value;
+  let sub5 = document.getElementById('s5').value;
+  let sub6 = document.getElementById('s6').value;
+  let sub7 = document.getElementById('s7').value;
+  let sub8 = document.getElementById('s8').value;
+  let sub9 = document.getElementById('s9').value;
+  let sub10 = document.getElementById('s10').value;
+  let grades = "";
+ 
+  let c1 = 0;
+  let c2 = 0;
+  let c3 = 0;
+  let c4 = 0;
+  let c5 = 0;
+  let c6 = 0;
+  let c7 =0;
+  let c8 = 0;
+  let c9 = 0;
+  let c10 =0;
+  
+  
+  c1 = document.getElementById('cr1').value;
+  c2 = document.getElementById('cr2').value;
+   c3 = document.getElementById('cr3').value;
+   c4 = document.getElementById('cr4').value;
+   c5 = document.getElementById('cr5').value;
+   c6 = document.getElementById('cr6').value;
+   c7 = document.getElementById('cr7').value;
+   c8 = document.getElementById('cr8').value;
+   c9 = document.getElementById('cr9').value;
+   c10 = document.getElementById('cr10').value;
+
+  
+
+   if(sub1=='S'){
+      sub1=10;
+  }
+  else if(sub1=='A'){
+      sub1=9;
+  }
+  else if(sub1=='B'){
+      sub1=8;
+  }
+  else if(sub1=='C'){
+      sub1=7;
+  }
+  else if(sub1=='D'){
+      sub1=6;
+  }
+  else{
+      sub1=0;
+  }
+
+
+  if(sub2=='S'){
+      sub2=10;
+  }
+  else if(sub2=='A'){
+      sub2=9;
+  }
+  else if(sub2=='B'){
+      sub2=8;
+  }
+  else if(sub2=='C'){
+      sub2=7;
+  }
+  else if(sub2=='D'){
+      sub2=6;
+  }
+  else{
+      sub2=0;
+  }
+
+  if(sub3=='S'){
+      sub3=10;
+  }
+  else if(sub3=='A'){
+      sub3=9;
+  }
+  else if(sub3=='B'){
+      sub3=8;
+  }
+  else if(sub3=='C'){
+      sub3=7;
+  }
+  else if(sub3=='D'){
+      sub3=6;
+  }
+  else{
+      sub3=0;
+  }
+
+  if(sub4=='S'){
+      sub4=10;
+  }
+  else if(sub4=='A'){
+      sub4=9;
+  }
+  else if(sub4=='B'){
+      sub4=8;
+  }
+  else if(sub4=='C'){
+      sub4=7;
+  }
+  else if(sub4=='D'){
+      sub4=6;
+  }
+  else{
+      sub4=0;
+  }
+
+  if(sub5=='S'){
+      sub5=10;
+  }
+  else if(sub5=='A'){
+      sub5=9;
+  }
+  else if(sub5=='B'){
+      sub5=8;
+  }
+  else if(sub5=='C'){
+      sub5=7;
+  }
+  else if(sub5=='D'){
+      sub5=6;
+  }
+  else{
+      sub5=0;
+  }
+
+  if(sub6=='S'){
+      sub6=10;
+  }
+  else if(sub6=='A'){
+      sub6=9;
+  }
+  else if(sub6=='B'){
+      sub1=8;
+  }
+  else if(sub6=='C'){
+      sub6=7;
+  }
+  else if(sub6=='D'){
+      sub6=6;
+  }
+  else{
+      sub6=0;
+  }
+
+  if(sub7=='S'){
+      sub7=10;
+  }
+  else if(sub7=='A'){
+      sub7=9;
+  }
+  else if(sub7=='B'){
+      sub7=8;
+  }
+  else if(sub7=='C'){
+      sub7=7;
+  }
+  else if(sub7=='D'){
+      sub7=6;
+  }
+  else{
+      sub7=0;
+  }
+
+  if(sub8=='S'){
+      sub8=10;
+  }
+  else if(sub8=='A'){
+      sub8=9;
+  }
+  else if(sub8=='B'){
+      sub8=8;
+  }
+  else if(sub8=='C'){
+      sub8=7;
+  }
+  else if(sub8=='D'){
+      sub8=6;
+  }
+  else{
+      sub8=0;
+  }
+
+  if(sub9=='S'){
+      sub9=10;
+  }
+  else if(sub9=='A'){
+      sub9=9;
+  }
+  else if(sub9=='B'){
+      sub9=8;
+  }
+  else if(sub9=='C'){
+      sub9=7;
+  }
+  else if(sub9=='D'){
+      sub9=6;
+  }
+  else{
+      sub9=0;
+  }
+  if(sub10=='S'){
+      sub10=10;
+  }
+  else if(sub10=='A'){
+      sub10=9;
+  }
+  else if(sub10=='B'){
+      sub10=8;
+  }
+  else if(sub10=='C'){
+      sub10=7;
+  }
+  else if(sub10=='D'){
+      sub10=6;
+  }
+  else{
+      sub10=0;
+  }
+ 
+ if(!c1){
+     c1=parseInt(0);
+ }
+ if(!c2){
+     c2=parseInt(0);
+ }
+ if(!c3){
+     c3=parseInt(0);
+ }
+ if(!c4){
+     c4=parseInt(0);
+ }
+ if(!c5){
+     c5=parseInt(0);
+ }
+ if(!c6){
+     c6=parseInt(0);
+ }
+ if(!c7){
+     c7=parseInt(0);
+ }
+ if(!c8){
+     c8=parseInt(0);
+ }
+ if(!c9){
+     c9=parseInt(0);
+ }
+ if(!c10){
+     c10=parseInt(0);
+ }
+//alert(c1);
+let totalscore = parseInt(c1)*parseInt(sub1) +  parseInt(c2)*parseInt(sub2) +  parseInt(c3)*parseInt(sub3) +  parseInt(c4)*parseInt(sub4) +  parseInt(c5)*parseInt(sub5) +  parseInt(c6)*parseInt(sub6) +  parseInt(c7)*parseInt(sub7) +  parseInt(c8)*parseInt(sub8) +  parseInt(c9)*parseInt(sub9) +  parseInt(c10)*parseInt(sub10);
+  alert(totalscore);
+let totalcredit= parseInt(c1)+parseInt(c2)+parseInt(c3)+parseInt(c4)+parseInt(c5)+parseInt(c6)+parseInt(c7)+parseInt(c8)+parseInt(c9)+parseInt(c10)
+  alert(totalcredit);
+
+  let gpa=totalscore/totalcredit;
+  alert(gpa);
+  debugger;
+
+
+  
+    document.getElementById('showData').innerHTML = ` YOUR GPA IS ${gpa} You are Pass. `
+  
+  
+   // document.getElementById('showData').innerHTML = ` Out of 400 your total is  ${totalGrades} and percentage is ${perc}%. <br> Your grade is ${grades}. You are Fail. `
+  
+
+  
+}
+
+
+
+</script>
+
+</body>
+</html>
